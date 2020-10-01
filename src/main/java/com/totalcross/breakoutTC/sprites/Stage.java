@@ -1,0 +1,64 @@
+package com.totalcross.breakoutTC.sprites;
+
+import com.totalcross.breakoutTC.util.Constants;
+import totalcross.ui.image.ImageException;
+
+@SuppressWarnings("deprecation")
+public class Stage {
+    private RedBrick[] redBrick = new RedBrick[20];
+    private OrangeBrick[] orangeBrick = new OrangeBrick[20];
+    private DarkOrangeBrick[] darkOrangeBrick = new DarkOrangeBrick[20];
+    private YellowBrick[] yellowBrick = new YellowBrick[20];
+    private GreenBrick[] greenBrick = new GreenBrick[20];
+    private BlueBrick[] blueBrick = new BlueBrick[20];
+
+    public Stage() throws IllegalArgumentException, IllegalStateException, ImageException {
+        for (int i = 0; i < redBrick.length; i++) {
+            redBrick[i] = new RedBrick();
+            redBrick[i].setPos(i * redBrick[i].width + (redBrick[i].width >> 1), Constants.EDGE_RACKET * 3, false);
+
+            orangeBrick[i] = new OrangeBrick();
+            orangeBrick[i].setPos(i * orangeBrick[i].width + (orangeBrick[i].width >> 1),
+                    redBrick[i].centerY + orangeBrick[i].height, false);
+
+            darkOrangeBrick[i] = new DarkOrangeBrick();
+            darkOrangeBrick[i].setPos(i * darkOrangeBrick[i].width + (darkOrangeBrick[i].width >> 1),
+                    orangeBrick[i].centerY + darkOrangeBrick[i].height, false);
+
+            yellowBrick[i] = new YellowBrick();
+            yellowBrick[i].setPos(i * yellowBrick[i].width + (yellowBrick[i].width >> 1),
+                    darkOrangeBrick[i].centerY + yellowBrick[i].height, false);
+
+            greenBrick[i] = new GreenBrick();
+            greenBrick[i].setPos(i * greenBrick[i].width + (greenBrick[i].width >> 1),
+                    yellowBrick[i].centerY + greenBrick[i].height, false);
+
+            blueBrick[i] = new BlueBrick();
+            blueBrick[i].setPos(i * greenBrick[i].width + (greenBrick[i].width >> 1),
+                    greenBrick[i].centerY + blueBrick[i].height, false);
+
+        }
+    }
+
+    public void show() {
+        for (int i = 0; i < redBrick.length; i++) {
+            redBrick[i].show();
+            orangeBrick[i].show();
+            darkOrangeBrick[i].show();
+            yellowBrick[i].show();
+            greenBrick[i].show();
+            blueBrick[i].show();
+        }
+    }
+
+    public void collide(Ball ball) {
+        for (int i = 0; i < redBrick.length; i++) {
+            redBrick[i].hit(ball);
+            orangeBrick[i].hit(ball);
+            darkOrangeBrick[i].hit(ball);
+            yellowBrick[i].hit(ball);
+            greenBrick[i].hit(ball);
+            blueBrick[i].hit(ball);
+        }
+    }
+}
