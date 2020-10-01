@@ -1,5 +1,7 @@
 # breakout-tc
- Remake of the [breakout game (1978) Atari 2600](https://www.youtube.com/watch?v=Cr6z3AyhRr8) built with java using the @TotalCross framework as the final project of the MAMI (mathematics applied to multimedia).
+ Remake of the [breakout game (1978) Atari 2600](https://www.youtube.com/watch?v=Cr6z3AyhRr8) built with java using the [@TotalCross](https://github.com/TotalCross/) framework as the final project of the MAMI (mathematics applied to multimedia).
+ 
+ And thanks to [@fabio](https://github.com/flsobral) for helping me to understand how the framework works and especially for guiding me on the best object-oriented practices
  
  ## Info:
 * Name and registration: Vaneska Sousa, 476389;
