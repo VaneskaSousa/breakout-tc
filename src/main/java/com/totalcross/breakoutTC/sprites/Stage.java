@@ -41,7 +41,6 @@ public class Stage extends Container {
             blueBrick[i] = new BlueBrick();
             blueBrick[i].setPos(i * greenBrick[i].width + (greenBrick[i].width >> 1),
                     greenBrick[i].centerY + blueBrick[i].height, false);
-
         }
     }
 
@@ -66,25 +65,25 @@ public class Stage extends Container {
             blueBrick[i].hit(ball);
         }
         if (haveBrick() == false && level == 1) {
-            System.out.println("opa, entrou no if haveBrick == false");
+            ball.reset();
+            resetStage();
             ball.speed = 15;
             level = 2;
-            resetStage();
         }
-        // System.out.print(general_points);
     }
 
     public boolean haveBrick() {
         boolean bricks = false;
         for (int i = 0; i < redBrick.length; i++) {
-            bricks |= (blueBrick[i].isShown) ;
+            bricks |= (blueBrick[i].isShown);
             bricks |= (greenBrick[i].isShown);
             bricks |= (yellowBrick[i].isShown);
             bricks |= (darkOrangeBrick[i].isShown);
             bricks |= (orangeBrick[i].isShown);
             bricks |= (redBrick[i].isShown);
 
-            if(bricks) break; 
+            if (bricks)
+                break;
         }
         return bricks;
     }

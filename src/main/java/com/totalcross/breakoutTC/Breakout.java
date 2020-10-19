@@ -83,9 +83,9 @@ public class Breakout extends GameEngine {
   public void onKey(KeyEvent evt) {
     super.onKey(evt);
     if (evt.key == SpecialKeys.BACKSPACE) {
-      ball.move();
       ball.dX = 1;
       ball.dY = 1;
+      ball.move();
     }
   }
 

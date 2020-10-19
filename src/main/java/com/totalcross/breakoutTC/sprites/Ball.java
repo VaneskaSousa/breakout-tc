@@ -10,8 +10,8 @@ import totalcross.ui.image.ImageException;
 @SuppressWarnings("deprecation")
 public class Ball extends Sprite {
     public int speed = 10;
-    public int dX = 1;;
-    public int dY = 1;
+    public int dX = 0;
+    public int dY = 0;
 
     private Paddle racket;
     private Stage stage;
@@ -59,21 +59,21 @@ public class Ball extends Sprite {
          *
          */
         if (this.collide(racket)) {
-            int racketMod = racket.width / 6;
+            int racketMod = racket.width / 5;
             /*
              * dX = -dX; dY = -dY;
              */
-            if (this.centerX < (racket.centerX + racketMod)) {
+            if (this.centerX < (racket.centerX - racketMod)) {
                 dX = -1;
                 dY = -1;
                 System.out.println("Colidiu na esquerda");
-            } else if (this.centerX > (racket.centerX - racketMod)) {
+            } else if (this.centerX > (racket.centerX + racketMod)) {
                 dX = 1;
                 dY = -1;
                 System.out.println("Colidiu na direita");
             } else {
-                dX = 1;
-                dY = 1;
+                //dX = -dX;
+                dY = -dY;
                 System.out.println("Colidiu no centro");
             }
         }
@@ -86,6 +86,7 @@ public class Ball extends Sprite {
             // estranho
             this.reset();
         }
+
         return super.onPositionChange();
     }
 
