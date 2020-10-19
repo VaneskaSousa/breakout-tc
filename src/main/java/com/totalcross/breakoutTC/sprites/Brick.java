@@ -29,7 +29,7 @@ public abstract class Brick extends Sprite {
         return super.collide(s);
     }
 
-    public void hit(Ball ball) {
+    public void hit(Ball ball) throws IllegalArgumentException, IllegalStateException, ImageException {
         // TODO Auto-generated method stub
         if (this.collide(ball)) {
             ball.dY = -ball.dY;

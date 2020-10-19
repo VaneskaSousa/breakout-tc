@@ -9,10 +9,9 @@ import totalcross.ui.image.ImageException;
 
 @SuppressWarnings("deprecation")
 public class Ball extends Sprite {
-    private int vX = 10;
-    private int vY = 10;
-    public int dX = -1;
-    public int dY = -1;
+    public int speed = 10;
+    public int dX = 1;;
+    public int dY = 1;
 
     private Paddle racket;
     private Stage stage;
@@ -25,8 +24,7 @@ public class Ball extends Sprite {
     }
 
     public final void move() {
-        // move so é chamado quando é animação (velocidade e percurso)
-        this.setPos(centerX + vX * dX, centerY + vY * dY, true);
+        this.setPos(centerX + speed * dX, centerY + speed * dY, true);
         this.show();
     }
 
@@ -48,7 +46,12 @@ public class Ball extends Sprite {
         }
 
         // Change the ball direction every colision with the red paddle
-        stage.collide(this);
+        try {
+            stage.collide(this);
+        } catch (IllegalArgumentException | IllegalStateException | ImageException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
         // Changes the direction of the ball according to the location of the racket
         /*
@@ -57,27 +60,21 @@ public class Ball extends Sprite {
          *
          */
         if (this.collide(racket)) {
-            int racketMod = racket.width / 4;
-
-            if (this.regionMinx < racketMod) { // 1
+            int racketMod = racket.width/6;
+/*             dX = -dX;
+            dY = -dY; */
+            if(this.centerX < (racket.centerX+racketMod)){
                 dX = -1;
                 dY = -1;
-            }
-            if (this.regionMinx >= racketMod && this.regionMinx < (racketMod * 2)) { // 2
-                dX = -1;
-                dY = -dY;
-            }
-            if (this.regionMinx >= (racketMod * 2) && this.regionMinx < (racketMod * 3)) { // Center
-                dX = 0;
-                dY = -1;
-            }
-            if (this.regionMinx >= (racketMod * 3) && this.regionMinx < (racketMod * 4)) { // 2
-                dX = 1;
-                dY = -dY;
-            }
-            if (this.regionMinx > (racketMod * 4)) { // 1
+                System.out.println("Colidiu na esquerda");
+            } else if(this.centerX > (racket.centerX-racketMod)){ 
                 dX = 1;
                 dY = -1;
+                System.out.println("Colidiu na direita");
+            }else{ 
+                dX = 1;
+                dY = 1;
+                System.out.println("Colidiu no centro");
             }
         }
 
@@ -95,8 +92,7 @@ public class Ball extends Sprite {
     public void reset() {
         dX = 0;
         dY = 0;
-        int racketY = (Settings.screenHeight - racket.height) - Constants.EDGE_RACKET;
-        racket.setPos(Settings.screenWidth / 2, racketY, false);
+        racket.setPos(Settings.screenWidth / 2, (Settings.screenHeight - racket.height) - Constants.EDGE_RACKET, false);
         this.setPos(racket.centerX, racket.centerY - (racket.height >> 1) - 10, false);
     }
 }

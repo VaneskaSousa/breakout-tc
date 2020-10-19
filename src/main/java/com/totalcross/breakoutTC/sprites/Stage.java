@@ -1,10 +1,15 @@
 package com.totalcross.breakoutTC.sprites;
 
 import com.totalcross.breakoutTC.util.Constants;
+
+import totalcross.ui.Container;
+import totalcross.ui.gfx.Graphics;
 import totalcross.ui.image.ImageException;
 
 @SuppressWarnings("deprecation")
-public class Stage {
+public class Stage extends Container{
+    public int general_points = 0;
+    public int level = 1;
     private RedBrick[] redBrick = new RedBrick[20];
     private OrangeBrick[] orangeBrick = new OrangeBrick[20];
     private DarkOrangeBrick[] darkOrangeBrick = new DarkOrangeBrick[20];
@@ -51,7 +56,7 @@ public class Stage {
         }
     }
 
-    public void collide(Ball ball) {
+    public void collide(Ball ball) throws IllegalArgumentException, IllegalStateException, ImageException {
         for (int i = 0; i < redBrick.length; i++) {
             redBrick[i].hit(ball);
             orangeBrick[i].hit(ball);
@@ -60,5 +65,41 @@ public class Stage {
             greenBrick[i].hit(ball);
             blueBrick[i].hit(ball);
         }
+        if(haveBrick() == false){
+            System.out.println("opa, entrou no if haveBrick == false");
+            ball.speed = 15;
+            level = 2;
+            resetStage();
+        }
+        //System.out.print(general_points);
+    }
+    public boolean haveBrick(){
+        boolean bricks = false;
+        for (int i = 0; i < redBrick.length; i++) {
+            bricks = (blueBrick[i].isShown)? true : false;
+            bricks = (greenBrick[i].isShown)? true : false;
+            bricks = (yellowBrick[i].isShown)? true : false;
+            bricks = (darkOrangeBrick[i].isShown)? true : false;
+            bricks = (orangeBrick[i].isShown)? true : false;
+            bricks = (redBrick[i].isShown)? true : false;
+        }
+        return bricks;
+    }
+
+    public void resetStage(){
+        //Aqui tentei chamar esse metodo la em Ball.java quando cai mas nao deu certo
+        for (int i = 0; i < redBrick.length; i++) {
+            redBrick[i].isShown = true;
+            orangeBrick[i].isShown = true;
+            darkOrangeBrick[i].isShown = true;
+            yellowBrick[i].isShown = true;
+            greenBrick[i].isShown = true;
+            blueBrick[i].isShown = true;
+        }
+    }
+    @Override
+    public void onPaint(Graphics g) {
+        // TODO Auto-generated method stub
+        //super.onPaint(g);
     }
 }
