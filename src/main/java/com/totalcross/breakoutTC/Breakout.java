@@ -10,10 +10,9 @@ import com.totalcross.breakoutTC.util.Images;
 
 import totalcross.game.GameEngine;
 import totalcross.sys.Settings;
-import totalcross.sys.SpecialKeys;
+import totalcross.sys.Vm;
 import totalcross.ui.MainWindow;
 import totalcross.ui.dialog.MessageBox;
-import totalcross.ui.event.KeyEvent;
 import totalcross.ui.event.PenEvent;
 import totalcross.ui.gfx.Color;
 import totalcross.ui.gfx.Graphics;
@@ -25,7 +24,6 @@ public class Breakout extends GameEngine {
   private Paddle racket;
   private Ball ball;
   private Stage stage;
-  // private TextRenderer level, points;
 
   public Breakout() {
     setUIStyle(Settings.MATERIAL_UI);
@@ -46,8 +44,6 @@ public class Breakout extends GameEngine {
       stage = new Stage();
       racket = new Paddle();
       ball = new Ball(racket, stage);
-      // level = createTextRenderer(getFont(), 0xFFFFFF, "Level: "+stage.level, 1,
-      // true);
 
     } catch (Exception e) {
       MessageBox.showException(e, true);
@@ -60,7 +56,6 @@ public class Breakout extends GameEngine {
     this.swap(stage);
     ball.setPos(Settings.screenWidth / 2, Settings.screenHeight / 2, true);
     racket.setPos(Settings.screenWidth / 2, (Settings.screenHeight - racket.height) - Constants.EDGE_RACKET, true);
-    // level.display(LEFT, TOP, true);
   }
 
   @Override

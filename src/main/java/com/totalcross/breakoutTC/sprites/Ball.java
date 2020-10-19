@@ -12,7 +12,7 @@ public class Ball extends Sprite {
     public int speed = 10;
     public int dX = 0;
     public int dY = 0;
-
+    public boolean isStop = false;
     private Paddle racket;
     private Stage stage;
 
@@ -57,23 +57,15 @@ public class Ball extends Sprite {
             if (this.centerX < (racket.centerX - racketMod)) {
                 dX = -1;
                 dY = -1;
-                System.out.println("Colidiu na esquerda");
             } else if (this.centerX > (racket.centerX + racketMod)) {
                 dX = 1;
                 dY = -1;
-                System.out.println("Colidiu na direita");
             } else {
                 dY = -dY;
-                System.out.println("Colidiu no centro");
             }
         }
 
-        /*
-         * if the ball arrives at the place where the racket starts, that is, there is
-         * no collision with the racket, it returns to the home screen
-         */
         if (this.centerY > (regionMaxy - Constants.EDGE_RACKET)) {
-            // estranho
             this.reset();
         }
 
