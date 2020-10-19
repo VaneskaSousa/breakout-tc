@@ -30,6 +30,11 @@ public class Ball extends Sprite {
 
     @Override
     public boolean onPositionChange() {
+        if(dX == 0 && dY == 0){
+            isStop = true;
+        }else{
+            isStop = false;
+        }
         // Change the ball direction every colision with the screen edges
         if (this.centerX < regionMinx) {
             this.centerX = regionMinx;

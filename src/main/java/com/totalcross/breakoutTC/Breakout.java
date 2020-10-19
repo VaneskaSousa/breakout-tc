@@ -25,6 +25,9 @@ public class Breakout extends GameEngine {
   private Ball ball;
   private Stage stage;
 
+  public static int threshold = 200;
+  private int timeClick = -1;
+
   public Breakout() {
     setUIStyle(Settings.MATERIAL_UI);
     gameName = "Breakout";
@@ -75,16 +78,6 @@ public class Breakout extends GameEngine {
   }
 
   @Override
-  public void onKey(KeyEvent evt) {
-    super.onKey(evt);
-    if (evt.key == SpecialKeys.BACKSPACE) {
-      ball.dX = 1;
-      ball.dY = 1;
-      ball.move();
-    }
-  }
-
-  @Override
   public final void onPenDown(PenEvent evt) {
     if (gameIsRunning) {
       racket.setPos(evt.x, racket.centerY, true);
@@ -95,6 +88,24 @@ public class Breakout extends GameEngine {
   public final void onPenDrag(PenEvent evt) {
     if (gameIsRunning) {
       racket.setPos(evt.x, racket.centerY, true);
+    }
+  }
+
+  @Override
+  public void onPenUp(PenEvent evt) {
+    if ((!Settings.fingerTouch || !hadParentScrolled()) && isInsideOrNear(evt.x, evt.y)) {
+      // postPressedEvent();
+      int current = Vm.getTimeStamp();
+      if (timeClick == -1) {
+        timeClick = current;
+        return; // like the break in switch case
+    }
+      if (current - timeClick < threshold && ball.isStop) {
+        ball.dX = 1;
+        ball.dY = 1;
+        ball.move();
+      }
+      timeClick = -1;
     }
   }
 }
