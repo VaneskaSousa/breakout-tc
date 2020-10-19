@@ -1,5 +1,6 @@
 package com.totalcross.breakoutTC.util;
 
+import totalcross.sys.Settings;
 import totalcross.ui.Control;
 import totalcross.util.UnitsConverter;
 
@@ -10,6 +11,8 @@ public class Constants {
     public static final int DP_100 = UnitsConverter.toPixels(100 + Control.DP);
     public static final int EDGE_RACKET = UnitsConverter.toPixels(20 + Control.DP);
     public static final int NUM_BRICKS = 10;
+    public static final int WIDTH_BRICKS = Settings.screenWidth / NUM_BRICKS;
+    public static final int HEIGHT_BRICKS = Settings.screenHeight / 32;
 
     //Brick Points
     public static final int BLUE_POINT = 1;

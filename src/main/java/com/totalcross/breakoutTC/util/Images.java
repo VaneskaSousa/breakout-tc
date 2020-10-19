@@ -19,18 +19,17 @@ public class Images {
             title = new Image("others/breakout_title.png");
 
             // Bricks 20x32
-            red = new Image("sprites/red_brick.png").getScaledInstance(Settings.screenWidth / Constants.NUM_BRICKS,
-                    Settings.screenHeight / 32);
-            orange = new Image("sprites/orange_brick.png")
-                    .getScaledInstance(Settings.screenWidth / Constants.NUM_BRICKS, Settings.screenHeight / 32);
-            dark_orange = new Image("sprites/orange2_brick.png")
-                    .getScaledInstance(Settings.screenWidth / Constants.NUM_BRICKS, Settings.screenHeight / 32);
-            yellow = new Image("sprites/yellow_brick.png")
-                    .getScaledInstance(Settings.screenWidth / Constants.NUM_BRICKS, Settings.screenHeight / 32);
-            green = new Image("sprites/green_brick.png").getScaledInstance(Settings.screenWidth / Constants.NUM_BRICKS,
-                    Settings.screenHeight / 32);
-            blue = new Image("sprites/blue_brick.png").getScaledInstance(Settings.screenWidth / Constants.NUM_BRICKS,
-                    Settings.screenHeight / 32);
+            red = new Image("sprites/red_brick.png").getScaledInstance(Constants.WIDTH_BRICKS, Constants.HEIGHT_BRICKS);
+            orange = new Image("sprites/orange_brick.png").getScaledInstance(Constants.WIDTH_BRICKS,
+                    Constants.HEIGHT_BRICKS);
+            dark_orange = new Image("sprites/orange2_brick.png").getScaledInstance(Constants.WIDTH_BRICKS,
+                    Constants.HEIGHT_BRICKS);
+            yellow = new Image("sprites/yellow_brick.png").getScaledInstance(Constants.WIDTH_BRICKS,
+                    Constants.HEIGHT_BRICKS);
+            green = new Image("sprites/green_brick.png").getScaledInstance(Constants.WIDTH_BRICKS,
+                    Constants.HEIGHT_BRICKS);
+            blue = new Image("sprites/blue_brick.png").getScaledInstance(Constants.WIDTH_BRICKS,
+                    Constants.HEIGHT_BRICKS);
 
         } catch (Exception e) {
             MessageBox.showException(e, true);
