@@ -45,8 +45,8 @@ public class InitialScreen extends Container {
         add(crossy, CENTER - Constants.DP_100 * 2, AFTER + Constants.DP_50 / 2, Constants.DP_50 * 4,
                 Constants.DP_50 * 4);
 
-        final Label information = new Label(
-                "Vaneska Sousa - 476389\n" + "Breakout built with Java using TotalCross\n" + "MAMI - 2020.1");
+        final Label information = new Label("Vaneska Sousa - 476389\n" + "Breakout built with Java using TotalCross\n"
+                + "\nMAMI - 2020.1\n\nDouble click on the game screen to start or restart the game");
         information.transparentBackground = true;
         information.setForeColor(Colors.P_FONT);
         add(information, CENTER + Constants.DP_100 * 3 / 2, AFTER + Constants.DP_50 * 2, PREFERRED, PREFERRED, title);
