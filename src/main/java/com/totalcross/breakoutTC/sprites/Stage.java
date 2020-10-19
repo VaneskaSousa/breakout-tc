@@ -57,12 +57,12 @@ public class Stage extends Container {
 
     public void collide(Ball ball) throws IllegalArgumentException, IllegalStateException, ImageException {
         for (int i = 0; i < redBrick.length; i++) {
-            redBrick[i].hit(ball);
-            orangeBrick[i].hit(ball);
-            darkOrangeBrick[i].hit(ball);
-            yellowBrick[i].hit(ball);
-            greenBrick[i].hit(ball);
-            blueBrick[i].hit(ball);
+            if(redBrick[i].hit(ball)) continue;
+            if(orangeBrick[i].hit(ball)) continue;
+            if(darkOrangeBrick[i].hit(ball)) continue;
+            if(yellowBrick[i].hit(ball)) continue;
+            if(greenBrick[i].hit(ball)) continue;
+            if(blueBrick[i].hit(ball)) continue;
         }
         if (haveBrick() == false && level == 1) {
             ball.reset();

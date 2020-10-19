@@ -27,11 +27,13 @@ public abstract class Brick extends Sprite {
         return super.collide(s);
     }
 
-    public void hit(Ball ball) throws IllegalArgumentException, IllegalStateException, ImageException {
+    public boolean hit(Ball ball) throws IllegalArgumentException, IllegalStateException, ImageException {
         if (this.collide(ball)) {
             ball.dY = -ball.dY;
             this.isShown = false;
             this.hide();
+            return true;
         }
+        return false;
     }
 }
