@@ -10,12 +10,12 @@ import totalcross.ui.image.ImageException;
 public class Stage extends Container{
     public int general_points = 0;
     public int level = 1;
-    private RedBrick[] redBrick = new RedBrick[20];
-    private OrangeBrick[] orangeBrick = new OrangeBrick[20];
-    private DarkOrangeBrick[] darkOrangeBrick = new DarkOrangeBrick[20];
-    private YellowBrick[] yellowBrick = new YellowBrick[20];
-    private GreenBrick[] greenBrick = new GreenBrick[20];
-    private BlueBrick[] blueBrick = new BlueBrick[20];
+    private RedBrick[] redBrick = new RedBrick[Constants.NUM_BRICKS];
+    private OrangeBrick[] orangeBrick = new OrangeBrick[Constants.NUM_BRICKS];
+    private DarkOrangeBrick[] darkOrangeBrick = new DarkOrangeBrick[Constants.NUM_BRICKS];
+    private YellowBrick[] yellowBrick = new YellowBrick[Constants.NUM_BRICKS];
+    private GreenBrick[] greenBrick = new GreenBrick[Constants.NUM_BRICKS];
+    private BlueBrick[] blueBrick = new BlueBrick[Constants.NUM_BRICKS];
 
     public Stage() throws IllegalArgumentException, IllegalStateException, ImageException {
         for (int i = 0; i < redBrick.length; i++) {
