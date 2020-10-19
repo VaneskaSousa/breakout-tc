@@ -65,29 +65,32 @@ public class Stage extends Container{
             greenBrick[i].hit(ball);
             blueBrick[i].hit(ball);
         }
-        if(haveBrick() == false){
+        if (haveBrick() == false && level == 1) {
             System.out.println("opa, entrou no if haveBrick == false");
             ball.speed = 15;
             level = 2;
             resetStage();
         }
-        //System.out.print(general_points);
+        // System.out.print(general_points);
     }
-    public boolean haveBrick(){
+
+    public boolean haveBrick() {
         boolean bricks = false;
         for (int i = 0; i < redBrick.length; i++) {
-            bricks = (blueBrick[i].isShown)? true : false;
-            bricks = (greenBrick[i].isShown)? true : false;
-            bricks = (yellowBrick[i].isShown)? true : false;
-            bricks = (darkOrangeBrick[i].isShown)? true : false;
-            bricks = (orangeBrick[i].isShown)? true : false;
-            bricks = (redBrick[i].isShown)? true : false;
+            bricks |= (blueBrick[i].isShown) ;
+            bricks |= (greenBrick[i].isShown);
+            bricks |= (yellowBrick[i].isShown);
+            bricks |= (darkOrangeBrick[i].isShown);
+            bricks |= (orangeBrick[i].isShown);
+            bricks |= (redBrick[i].isShown);
+
+            if(bricks) break; 
         }
         return bricks;
     }
 
-    public void resetStage(){
-        //Aqui tentei chamar esse metodo la em Ball.java quando cai mas nao deu certo
+    public void resetStage() {
+        // Aqui tentei chamar esse metodo la em Ball.java quando cai mas nao deu certo
         for (int i = 0; i < redBrick.length; i++) {
             redBrick[i].isShown = true;
             orangeBrick[i].isShown = true;
