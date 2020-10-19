@@ -69,7 +69,7 @@ public class Ball extends Sprite {
                 dY = -dY;
             }
         }
-
+        
         if (this.centerY > (regionMaxy - Constants.EDGE_RACKET)) {
             this.reset();
         }

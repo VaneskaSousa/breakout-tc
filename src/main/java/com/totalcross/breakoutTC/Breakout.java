@@ -99,7 +99,7 @@ public class Breakout extends GameEngine {
       if (timeClick == -1) {
         timeClick = current;
         return; // like the break in switch case
-    }
+      }
       if (current - timeClick < threshold && ball.isStop) {
         ball.dX = 1;
         ball.dY = 1;
