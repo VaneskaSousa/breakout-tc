@@ -9,5 +9,5 @@ public class BlueBrick extends Brick {
     public BlueBrick() throws IllegalArgumentException, IllegalStateException, ImageException {
         super(Images.blue);
     }
-    
+
 }

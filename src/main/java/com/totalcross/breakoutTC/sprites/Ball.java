@@ -49,7 +49,6 @@ public class Ball extends Sprite {
         try {
             stage.collide(this);
         } catch (IllegalArgumentException | IllegalStateException | ImageException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -60,18 +59,19 @@ public class Ball extends Sprite {
          *
          */
         if (this.collide(racket)) {
-            int racketMod = racket.width/6;
-/*             dX = -dX;
-            dY = -dY; */
-            if(this.centerX < (racket.centerX+racketMod)){
+            int racketMod = racket.width / 6;
+            /*
+             * dX = -dX; dY = -dY;
+             */
+            if (this.centerX < (racket.centerX + racketMod)) {
                 dX = -1;
                 dY = -1;
                 System.out.println("Colidiu na esquerda");
-            } else if(this.centerX > (racket.centerX-racketMod)){ 
+            } else if (this.centerX > (racket.centerX - racketMod)) {
                 dX = 1;
                 dY = -1;
                 System.out.println("Colidiu na direita");
-            }else{ 
+            } else {
                 dX = 1;
                 dY = 1;
                 System.out.println("Colidiu no centro");

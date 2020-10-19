@@ -7,7 +7,7 @@ import totalcross.ui.gfx.Graphics;
 import totalcross.ui.image.ImageException;
 
 @SuppressWarnings("deprecation")
-public class Stage extends Container{
+public class Stage extends Container {
     public int general_points = 0;
     public int level = 1;
     private RedBrick[] redBrick = new RedBrick[Constants.NUM_BRICKS];
@@ -100,9 +100,8 @@ public class Stage extends Container{
             blueBrick[i].isShown = true;
         }
     }
+
     @Override
     public void onPaint(Graphics g) {
-        // TODO Auto-generated method stub
-        //super.onPaint(g);
     }
 }

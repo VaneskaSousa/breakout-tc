@@ -14,7 +14,6 @@ public abstract class Brick extends Sprite {
 
     @Override
     public void show() {
-        // TODO Auto-generated method stub
         if (isShown) {
             super.show();
         }
@@ -22,7 +21,6 @@ public abstract class Brick extends Sprite {
 
     @Override
     public boolean collide(Sprite s) {
-        // TODO Auto-generated method stub
         if (isShown == false) {
             return false;
         }
@@ -30,7 +28,6 @@ public abstract class Brick extends Sprite {
     }
 
     public void hit(Ball ball) throws IllegalArgumentException, IllegalStateException, ImageException {
-        // TODO Auto-generated method stub
         if (this.collide(ball)) {
             ball.dY = -ball.dY;
             this.isShown = false;
