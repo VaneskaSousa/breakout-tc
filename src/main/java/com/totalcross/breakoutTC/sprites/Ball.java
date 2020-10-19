@@ -52,17 +52,8 @@ public class Ball extends Sprite {
             e.printStackTrace();
         }
 
-        // Changes the direction of the ball according to the location of the racket
-        /*
-         * Pensei em pegar a largura e dividir por 4 e dai em cada lugar tem um
-         * movimento diferente
-         *
-         */
         if (this.collide(racket)) {
             int racketMod = racket.width / 5;
-            /*
-             * dX = -dX; dY = -dY;
-             */
             if (this.centerX < (racket.centerX - racketMod)) {
                 dX = -1;
                 dY = -1;
@@ -72,7 +63,6 @@ public class Ball extends Sprite {
                 dY = -1;
                 System.out.println("Colidiu na direita");
             } else {
-                //dX = -dX;
                 dY = -dY;
                 System.out.println("Colidiu no centro");
             }
