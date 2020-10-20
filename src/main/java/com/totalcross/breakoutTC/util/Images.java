@@ -1,8 +1,10 @@
 package com.totalcross.breakoutTC.util;
 
+import totalcross.sys.Settings;
 import totalcross.ui.dialog.MessageBox;
 import totalcross.ui.image.Image;
 import static com.totalcross.breakoutTC.util.Constants.*;
+
 
 public class Images {
 
@@ -13,7 +15,7 @@ public class Images {
         try {
             // general
             paddle = new Image("sprites/paddle.png");
-            ball = new Image("sprites/ball.png");
+            ball = new Image("sprites/ball.png").getScaledInstance(WIDTH_BALL, HEIGHT_BALL);
             crossy = new Image("others/crossy.png");
             p_crossy = new Image("others/p_crossy.png");
             title = new Image("others/breakout_title.png");

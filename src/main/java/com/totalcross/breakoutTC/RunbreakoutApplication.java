@@ -1,4 +1,4 @@
-package com.totalcross.breakoutTC;
+  package com.totalcross.breakoutTC;
 
 import totalcross.TotalCrossApplication;
 
