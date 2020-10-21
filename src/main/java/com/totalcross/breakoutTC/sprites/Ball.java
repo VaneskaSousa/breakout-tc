@@ -23,13 +23,16 @@ public class Ball extends Sprite {
 
     }
 
+    //
     public final void move() {
+        //Ball MRU
         this.setPos(centerX + speed * dX, centerY + speed * dY, true);
         this.show();
     }
 
     @Override
     public boolean onPositionChange() {
+        //Check if the ball is stoped
         if(dX == 0 && dY == 0){
             isStop = true;
         }else{
@@ -50,13 +53,13 @@ public class Ball extends Sprite {
             dY = -dY;
         }
 
-        // Change the ball direction every colision with the red paddle
         try {
             stage.collide(this);
         } catch (IllegalArgumentException | IllegalStateException | ImageException e) {
             e.printStackTrace();
         }
 
+        //Test if colide with the racket and in wich part collide to change the direction X and/or Y
         if (this.collide(racket)) {
             int racketMod = racket.width / 5;
             if (this.centerX < (racket.centerX - racketMod)) {
@@ -70,13 +73,14 @@ public class Ball extends Sprite {
             }
         }
         
+        //If the ball fall (game over) make the ball stop
         if (this.centerY > (regionMaxy - Constants.EDGE_RACKET)) {
             this.reset();
         }
 
         return super.onPositionChange();
     }
-
+    //Stop the ball by change the directions to 0;
     public void reset() {
         dX = 0;
         dY = 0;

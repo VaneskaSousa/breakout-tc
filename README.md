@@ -8,23 +8,32 @@
 * Course and Institution: [System and digital midia](https://smd.ufc.br/pt/sobre-o-curso/) na Federal University of Ceará;
 * Subject: MAMI - Mathematics Applied to Multimedia, 2020.1;
 
+![](https://i.imgur.com/RvkxEo5.gif)
+
+## How to run
+- `git clone https://github.com/TotalCross/totalcross-embedded-samples/` or download the .zip by clicking the green "Code" button next to repo name and choosing "Download ZIP".
+- If you downloaded .zip file, uncompress it in a folder and open it.
+- If you are using Linux, run `code <totalcross-embedded-samples>` or open VS Code and Click in "File > Open..." and select totalcross-embedded-samples in the file dialog that will be shown.
+- With project opened in VS Code, navigate to desired sample folder (like HomeApplianceXML).
+- Look for its `RunBreakoutApplication.java` and right-click.
+- Choose the "Run" option in the popup.
+- And play :smiley:
+
 ## Mechanical
-All mechanics listed below must be represented in the natural, computational and, if needed, a mathematical model.
+Below are the mechanics implemented in this remake: 
 
-> The description of the mechanics already corresponds to its natural model, since I had to watch the gameplay several times in addition to using an Atari emulator to be able to describe them.
-
-| Mechanics | Natural Model | Computational Model | Mathematical Model | OBS
-|:-:|---|---|---|---|
-| The game starts on a screen with the information and when the start button is clicked the interface is changed and the game starts, according to the mechanics bellows| :heavy_check_mark: | :x: | :x: | The inicial screen are finished but the change between the gameinit and the container aren't done yet|
-| Platform moves left or right, according to the user's command | :heavy_check_mark: | :heavy_check_mark: | :x: | - |
-| When the platform reaches the edge of the screen it collides, never exceeding the screen | :heavy_check_mark: | :heavy_check_mark: | :x: | - |
-| The ball moves from the center of the screen in an oscillatory motion starting down | :heavy_check_mark: | :heavy_check_mark: | :x: | - |
-| Each time the ball collides with the platform, it returns in the opposite direction | :heavy_check_mark: | :x: | :x: | I'm having difficulty in this part because the direction and direction of the ball changes depending on where the platform collided. |
-| Each time the ball hits a “brick” (blue, green, yellow, orange, red) the brick disappears | :heavy_check_mark: | :heavy_check_mark: | :x: | - | - |
-| Each time a brick is destroyed, a score is added. This value varies depending on the color of the brick | :heavy_check_mark: | :x: | :x: | - |
-| When all the bricks of level 01 are destroyed, new ones appear (in the same position as the previous one) and the speed of the ball increases | :heavy_check_mark: | :x: | :x: | - |
-| When all the bricks of level 02 are destroyed, the game continues without any obstacle on the screen. | :x: | :heavy_check_mark: | :x: | - |
-| When the ball falls (that is, it reaches the height of the platform without collision), the game restarts. Regardless of the level the user is in, it returns to the initial state (level 01, with zero points). | :heavy_check_mark: | :x: | :x: | - |
+1. The game starts on a splash screen, and when clicked on the start button it changes to the game screen
+1. To start the game for the first time or restart after the ball falls, just double-click on the screen;
+1. The platform moves to the right and left according to user commands (with two console buttons);
+1. When the ends of the platform touch the ends of the screen there is a collision, preventing the platform from leaving the screen;
+1. The ball moves from the center of the screen downwards with vertical and horizontal oscillatory movements;
+1. The ball collides with the ends of the screen, changing its direction;
+1. The ball changes direction according to the location of the collision with the platform;
+1. The game ends if the ball falls, that is, it reaches the place where the platform should be;
+1. When the ball collides with the block it disappears from the screen;
+1. When breaking all the blocks on the screen, the ball changes speed and returns the same number of blocks;
+1. When you break all the blocks for the first time the speed of the ball increases and the blocks are placed back on the screen;
+1. When breaking all blocks for the second time the game continues even without blocks on the screen, being finished;       
 
 ## Project Struture:
 

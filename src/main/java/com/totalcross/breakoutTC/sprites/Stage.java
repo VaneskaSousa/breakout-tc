@@ -10,6 +10,7 @@ import totalcross.ui.image.ImageException;
 public class Stage extends Container {
     public int general_points = 0;
     public int level = 1;
+    //create the diferents typs of bricks acording the constant NUM_BRICKS
     private RedBrick[] redBrick = new RedBrick[Constants.NUM_BRICKS];
     private OrangeBrick[] orangeBrick = new OrangeBrick[Constants.NUM_BRICKS];
     private DarkOrangeBrick[] darkOrangeBrick = new DarkOrangeBrick[Constants.NUM_BRICKS];
@@ -18,6 +19,7 @@ public class Stage extends Container {
     private BlueBrick[] blueBrick = new BlueBrick[Constants.NUM_BRICKS];
 
     public Stage() throws IllegalArgumentException, IllegalStateException, ImageException {
+        //Set the bricks in each one position
         for (int i = 0; i < redBrick.length; i++) {
             redBrick[i] = new RedBrick();
             redBrick[i].setPos(i * redBrick[i].width + (redBrick[i].width >> 1), Constants.EDGE_RACKET * 3, false);
@@ -43,7 +45,7 @@ public class Stage extends Container {
                     greenBrick[i].centerY + blueBrick[i].height, false);
         }
     }
-
+    //"paint" the bricks on the screen
     public void show() {
         for (int i = 0; i < redBrick.length; i++) {
             redBrick[i].show();
@@ -54,7 +56,7 @@ public class Stage extends Container {
             blueBrick[i].show();
         }
     }
-
+    //Test if have an colision
     public void collide(Ball ball) throws IllegalArgumentException, IllegalStateException, ImageException {
         for (int i = 0; i < redBrick.length; i++) {
             if(redBrick[i].hit(ball)) continue;
@@ -64,6 +66,7 @@ public class Stage extends Container {
             if(greenBrick[i].hit(ball)) continue;
             if(blueBrick[i].hit(ball)) continue;
         }
+       // Check if the user broke all the bricks and if it is true, pass to level 2, incrising the ball speed
         if (haveBrick() == false && level == 1) {
             ball.reset();
             resetStage();
@@ -71,7 +74,7 @@ public class Stage extends Container {
             level = 2;
         }
     }
-
+    //Check all bricks are "broken"
     public boolean haveBrick() {
         boolean bricks = false;
         for (int i = 0; i < redBrick.length; i++) {
@@ -87,7 +90,7 @@ public class Stage extends Container {
         }
         return bricks;
     }
-
+    //Reset all the brick vetors to restart the game on level 2
     public void resetStage() {
         // Aqui tentei chamar esse metodo la em Ball.java quando cai mas nao deu certo
         for (int i = 0; i < redBrick.length; i++) {

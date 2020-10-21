@@ -26,7 +26,7 @@ public abstract class Brick extends Sprite {
         }
         return super.collide(s);
     }
-
+    //Check if have the colision and change the brick stage to hide
     public boolean hit(Ball ball) throws IllegalArgumentException, IllegalStateException, ImageException {
         if (this.collide(ball)) {
             ball.dY = -ball.dY;

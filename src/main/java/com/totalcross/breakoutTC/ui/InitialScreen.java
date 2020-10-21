@@ -14,6 +14,10 @@ import totalcross.ui.event.Event;
 import totalcross.ui.event.EventHandler;
 
 @SuppressWarnings("deprecation")
+/*
+ * The game starts on a screen with the information and when the start button is
+ * clicked the interface is changed
+ */
 public class InitialScreen extends Container {
     private Button start;
     private GameEngine game;

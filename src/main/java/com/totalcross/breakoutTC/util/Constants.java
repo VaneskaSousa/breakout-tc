@@ -10,8 +10,8 @@ public class Constants {
     public static final int DP_50 = UnitsConverter.toPixels(50 + Control.DP);
     public static final int DP_100 = UnitsConverter.toPixels(100 + Control.DP);
     public static final int EDGE_RACKET = UnitsConverter.toPixels(20 + Control.DP);
-    public static final int WIDTH_BALL =  UnitsConverter.toPixels(20 + Control.DP);
-    public static final int HEIGHT_BALL =  UnitsConverter.toPixels(20 + Control.DP);
+    public static final int WIDTH_BALL =  UnitsConverter.toPixels(15 + Control.DP);
+    public static final int HEIGHT_BALL =  UnitsConverter.toPixels(15 + Control.DP);
     public static final int NUM_BRICKS = 10;
     public static final int WIDTH_BRICKS = Settings.screenWidth / NUM_BRICKS;
     public static final int HEIGHT_BRICKS = Settings.screenHeight / 32;

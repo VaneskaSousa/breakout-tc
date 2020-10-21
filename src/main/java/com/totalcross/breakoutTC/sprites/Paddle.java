@@ -12,7 +12,7 @@ public class Paddle extends Sprite {
   public Paddle() throws IllegalArgumentException, IllegalStateException, ImageException {
     super(Images.paddle, -1, true, null);
   }
-
+  //Move the platform acording the speed and the direction
   public final void move(boolean left, int speed) {
     if (left) {
       centerX -= SPEED;

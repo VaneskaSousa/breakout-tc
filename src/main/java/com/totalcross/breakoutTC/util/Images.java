@@ -1,6 +1,5 @@
 package com.totalcross.breakoutTC.util;
 
-import totalcross.sys.Settings;
 import totalcross.ui.dialog.MessageBox;
 import totalcross.ui.image.Image;
 import static com.totalcross.breakoutTC.util.Constants.*;
