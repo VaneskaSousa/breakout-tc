@@ -14,7 +14,6 @@
 - `git clone https://github.com/TotalCross/totalcross-embedded-samples/` or download the .zip by clicking the green "Code" button next to repo name and choosing "Download ZIP".
 - If you downloaded .zip file, uncompress it in a folder and open it.
 - If you are using Linux, run `code <totalcross-embedded-samples>` or open VS Code and Click in "File > Open..." and select totalcross-embedded-samples in the file dialog that will be shown.
-- With project opened in VS Code, navigate to desired sample folder (like HomeApplianceXML).
 - Look for its `RunBreakoutApplication.java` and right-click.
 - Choose the "Run" option in the popup.
 - And play :smiley:
